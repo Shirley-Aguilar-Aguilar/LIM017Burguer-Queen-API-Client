@@ -11,6 +11,8 @@ import { ViewProductsComponent } from './component/body/products/view-products/v
 import { CreateOrdersComponent } from './component/body/orders/create-orders/create-orders.component';
 import { OrdersPendingComponent } from './component/body/orders/view-orders/orders-pending/orders-pending.component';
 import { OrdersStatusComponent } from './component/body/orders/view-orders/orders-status/orders-status.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './angular-material/angular-material.module';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,13 @@ import { OrdersStatusComponent } from './component/body/orders/view-orders/order
     ViewProductsComponent,
     CreateOrdersComponent,
     OrdersPendingComponent,
-    OrdersStatusComponent
+    OrdersStatusComponent,
+
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
