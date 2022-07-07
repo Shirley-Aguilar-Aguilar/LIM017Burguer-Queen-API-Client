@@ -13,6 +13,9 @@ import { OrdersPendingComponent } from './component/body/orders/view-orders/orde
 import { OrdersStatusComponent } from './component/body/orders/view-orders/orders-status/orders-status.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage())
   ],
   providers: [],
   bootstrap: [AppComponent]
