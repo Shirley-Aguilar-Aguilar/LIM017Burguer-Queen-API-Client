@@ -1,4 +1,5 @@
-import { Routes } from "@angular/router";
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 import { HeadernavComponent } from "../headernav/headernav.component";
 import { CreateOrdersComponent } from "./orders/create-orders/create-orders.component";
 import { OrdersPendingComponent } from "./orders/view-orders/orders-pending/orders-pending.component";
@@ -21,3 +22,8 @@ const routes: Routes = [
     ]
   }
 ]
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class BodyRoutingModule { }
