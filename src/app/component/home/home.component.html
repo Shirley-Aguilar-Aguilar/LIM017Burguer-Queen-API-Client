@@ -1,1 +1,16 @@
-<p>home works!</p>
+<div class="containerHome" fxLayout="column wrap" fxLayoutAlign="start center" fxFlex="100%" fxFlex.sm="100%" fxFlex.xs="100%">
+  <div class="headerHome" fxFlex="20%" fxFlex.sm="20%" fxFlex.xs="25%" fxLayout="row wrap" fxLayoutAlign="row wrap" >
+    <div fxFlex="53%" fxLayoutAlign="end start">
+      <img class="burguerLogo"  src="../../../assets/logo.png">
+    </div>
+    <div class="viewLogin" fxFlex="40%" fxLayoutAlign="end center"><a [routerLink]="['login']"><mat-icon>input</mat-icon><br/>Iniciar sesión</a></div>
+  </div>
+
+  <div  class = "description" fxLayout="row wrap"  fxFlex="70%" fxFlex.sm="60%" fxFlex.xs="55%" fxLayoutAlign="center">
+    <div class="text" fxLayoutAlign="center center" fxFlex="50%" fxFlex.sm="50%" fxFlex.xs="50%">
+       <h5 fxFlex="50%">Somos una hamburgueseria artesanal . Tenemos hamburguesas, jugos, desayunos hechos con productos de calidad.
+       Atención acogedora para toda la familia.</h5>
+    </div>
+    <div class="imageDescription" fxFlex="50%" fxFlex.sm="50%" fxFlex.xs="50%"></div>
+  </div>
+</div>
