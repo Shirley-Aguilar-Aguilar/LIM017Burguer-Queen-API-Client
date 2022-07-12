@@ -6,36 +6,26 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class RestService {
-  public host:string = environment.urlBurguerQueen
+  public host:string = environment.urlBurguerQueen;
   token = sessionStorage.getItem('token');
   constructor(private http: HttpClient) { }
   httpOptions = () => (
     { headers: new HttpHeaders (
         {
           'Content-Type': 'application/json',
-          'access-token': `${this.token!.replace(/['"]+/g, '')}`,
+          'access-token': `${this.token}`,
         })
     });
 
-  public login(email: string, password: string){
-    return this.http.post<any>(`${environment.urlBurguerQueen}/auth`, {email, password});
-  }
 
-  public getUserById(id:number){
-    return this.http.get<any>(`${environment.urlBurguerQueen}/users/${id}`, this.httpOptions());
-  }
+    public getById = (url:string,id:number) => this.http.get<any>(`${this.host}/${url}/${id}`, this.httpOptions());
 
-  public getUsers(){
-    return this.http.get<any>(`${environment.urlBurguerQueen}/users`, this.httpOptions());
-  }
+    public get = (url:string) => this.http.get<any>(`${this.host}/${url}`, this.httpOptions());
 
-  public postUser(data:any){
-    return this.http.post<any>(`${environment.urlBurguerQueen}/users`,data, this.httpOptions());
-  }
+    public post = (url:string, data:any) => this.http.post<any>(`${this.host}/${url}`,data, this.httpOptions());
 
-  public putUser(id:number){
-    const headers = new HttpHeaders().set('access-token',this.token!.replace(/['"]+/g, ''));
-    return this.http.put<any>(`${environment.urlBurguerQueen}/users/${id}`, {headers});
-  }
+    public put = (url:string, data:any, id:number) => this.http.put<any>(`${this.host}/${url}/${id}`,data, this.httpOptions());
+
+    public delete = (url:string, id:number) => this.http.delete<any>(`${this.host}/${url}/${id}`, this.httpOptions());
 
 }

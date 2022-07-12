@@ -8,5 +8,5 @@ export const environment = {
     authDomain: 'burguer-queen-88bf7.firebaseapp.com',
     messagingSenderId: '702056466594',
   },
-  production: false
+  production: true
 };
