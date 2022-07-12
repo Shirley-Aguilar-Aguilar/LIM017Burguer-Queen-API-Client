@@ -16,6 +16,10 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormControl } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormControl,
     AngularMaterialModule,
+    AppRoutingModule,
+    FlexLayoutModule,
+
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage())
   ],
