@@ -1,10 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-*{
-  border:0;
-  margin:0;
-  padding:0;
-  box-sizing: 0;
-}
+
 .containerHome {
   background: url(../../../assets/fondo-madera.jpg) no-repeat center center;
   background-size: cover;
@@ -15,14 +9,14 @@
 
 .viewLogin a{
   color:goldenrod;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: 'Patua One', cursive;
   text-decoration: none;
 }
 
 .description {width: 100vw;}
 .text {
   background-color:#edc49ebb ;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: 'Patua One', cursive;
 }
 .imageDescription {
   background: url(../../../assets/burguer-black.jpg) no-repeat center center;
