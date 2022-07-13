@@ -79,7 +79,8 @@ const materialModules = [
     materialModules
   ],
   exports: [
-    materialModules
+    materialModules,
+    CommonModule
   ],
 })
 

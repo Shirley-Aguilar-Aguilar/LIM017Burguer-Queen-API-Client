@@ -15,9 +15,9 @@ const routes: Routes = [
       {path:'create-users' , component: CreateUsersComponent},
       {path:'view-users' , component: ViewUsersComponent},
       {path:'products' , component: ViewProductsComponent},
-      {path:'create-order' , component: CreateOrdersComponent},
+      {path:'create-orders' , component: CreateOrdersComponent},
       {path:'orders-pending' , component: OrdersPendingComponent},
-      {path:'order-status' , component: OrdersStatusComponent},
+      {path:'orders-status' , component: OrdersStatusComponent},
 
     ]
   }
