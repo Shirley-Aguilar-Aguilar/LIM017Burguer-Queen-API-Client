@@ -1,0 +1,44 @@
+header .mat-toolbar{
+  background: url(../../../assets/fondo-madera.jpg) no-repeat center center;
+  background-size: cover;
+  width:100vw;
+  height: 15vh;
+  font-family: 'Patua One', cursive;
+}
+.toolItems{
+  color:#edc49e ;
+}
+.worker{
+  color:#edc49e ;
+}
+.burguerLogo{
+  width:50px;
+}
+.mat-sidenav-container{
+  height: 85vh;
+}
+
+.sidenavContainer{
+  background: url(../../../assets/fondo-madera.jpg) no-repeat center center;
+  background-size: cover;
+  height: 85vh;
+  top:15vh !important;
+}
+.mat-sidenav-content{
+  background: url(../../../assets/fondo-brown.png) no-repeat center   !important;
+  background-size: cover!important;
+  margin-left: 0 !important;
+}
+
+.mat-nav-list a {
+  color:#edc49e ;
+  font-family: 'Patua One', cursive;
+  font-size: large;
+}
+.mat-list-item:hover,
+.mat-nav-list a:hover {
+background-color:#edc49e;
+color:black;
+}
+
+
