@@ -1,1 +1,65 @@
-<p>create-users works!</p>
+<div class = "createUser">
+
+    <form [formGroup]="formCreateUser" novalidate   (ngSubmit)="save($event) " >
+      <h2>Crear usuario</h2>
+
+      <mat-form-field  appearance="fill">
+        <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name"/>
+    </mat-form-field>
+           <!--validación del nombre-->
+           <div *ngIf="nameField!.errors && nameField!.touched ">
+            <p *ngIf="nameField!.hasError('required')" class="messageError" >El campo es requerido</p>
+          </div>
+
+      <mat-form-field  appearance="fill">
+            <mat-label> Correo</mat-label>
+        <input type="email" matInput formControlName="email" name="email"/>
+      </mat-form-field>
+
+          <!--validación del correo-->
+        <div *ngIf="emailField!.errors && emailField!.touched ">
+          <p *ngIf="emailField!.hasError('required')" class="messageError" >El campo es requerido</p>
+          <p *ngIf="emailField!.hasError('email')" class="messageError" >Ingrese correo valido</p>
+        </div>
+
+        <mat-form-field  appearance="fill">
+          <mat-label>Password</mat-label>
+          <input [type]="hide ? 'password' : 'text'"  matInput formControlName="password" name="password"/>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+
+        </mat-form-field>
+          <!--validación de la contraseña-->
+          <div *ngIf="passwordField!.errors && passwordField!.touched ">
+            <p *ngIf="passwordField!.hasError('required')" class="messageError">El campo es requerido</p>
+            <p *ngIf="passwordField!.hasError('minlength')" class="messageError">Ingrese mínimo 6 carácteres</p>
+          </div>
+
+          <mat-radio-group formControlName="admin" >
+            <mat-label>Administrador</mat-label>
+            <mat-radio-button value=true>Si</mat-radio-button>
+            <mat-radio-button value=false>No</mat-radio-button>
+          </mat-radio-group>
+
+
+        <mat-form-field appearance="fill">
+          <mat-label>Rol</mat-label>
+          <mat-select formControlName="userRolId">
+            <mat-option *ngFor="let rol of roles" [value]="rol.value">
+              {{rol.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+      <div>
+        <button type="submit">Crear</button>
+        <button type="button" (click)="clear()">Borrar</button>
+      </div>
+
+    </form>
+
+
+</div>
