@@ -28,7 +28,10 @@
 
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Contraseña</mat-label>
-            <input type="password" name ="password" matInput autocomplete="on"  placeholder="contraseña" formControlName="password"/>
+            <input  [type]="hide ? 'password' : 'text'" name ="password" matInput autocomplete="on"  placeholder="contraseña" formControlName="password"/>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
           </mat-form-field>
           <!--validación de la contraseña-->
           <div *ngIf="passwordField!.errors && passwordField!.touched ">
@@ -37,8 +40,8 @@
           </div>
 
           <div fxLayoutAlign="center center">
-            <button type="submit" [disabled]="loginForm.invalid">Ingresar</button>
-            <button type="button" (click)="clear()">Limpiar</button>
+            <button type="submit" class="btn"  [disabled]="loginForm.invalid">Ingresar</button>
+            <button type="button" class="btn" (click)="clear()">Limpiar</button>
           </div>
 
 

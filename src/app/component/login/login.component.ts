@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup ;
   error: boolean = false;
   messageError!:string;
+  hide=true;
 
 
   constructor(
