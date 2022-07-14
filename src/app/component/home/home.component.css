@@ -1,0 +1,39 @@
+
+.containerHome {
+  background: url(../../../assets/fondo-madera.jpg) no-repeat center center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+.headerHome{width: 100vw;}
+
+.viewLogin a{
+  color:goldenrod;
+  font-family: 'Patua One', cursive;
+  text-decoration: none;
+}
+
+.description {width: 100vw;}
+.text {
+  background-color:#edc49ebb ;
+  font-family: 'Patua One', cursive;
+}
+.imageDescription {
+  background: url(../../../assets/burguer-black.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.burguerLogo{
+  width: 60px;
+}
+
+@media (min-width: 400px) and (max-width: 768px) {
+  .burguerLogo{width: 100px;}
+  .text{font-size: 27px;}
+}
+@media (min-width: 768px) and (max-width: 1900px)and (orientation: landscape) {
+  .burguerLogo{width: 81px}
+  .text{font-size: 30px;}
+}
+
+

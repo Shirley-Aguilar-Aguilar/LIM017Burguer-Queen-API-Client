@@ -1,4 +1,5 @@
-import { Routes } from "@angular/router";
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 import { HeadernavComponent } from "../headernav/headernav.component";
 import { CreateOrdersComponent } from "./orders/create-orders/create-orders.component";
 import { OrdersPendingComponent } from "./orders/view-orders/orders-pending/orders-pending.component";
@@ -14,10 +15,15 @@ const routes: Routes = [
       {path:'create-users' , component: CreateUsersComponent},
       {path:'view-users' , component: ViewUsersComponent},
       {path:'products' , component: ViewProductsComponent},
-      {path:'create-order' , component: CreateOrdersComponent},
+      {path:'create-orders' , component: CreateOrdersComponent},
       {path:'orders-pending' , component: OrdersPendingComponent},
-      {path:'order-status' , component: OrdersStatusComponent},
+      {path:'orders-status' , component: OrdersStatusComponent},
 
     ]
   }
 ]
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class BodyRoutingModule { }

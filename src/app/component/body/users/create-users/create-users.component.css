@@ -1,0 +1,51 @@
+.createUser{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Patua One', cursive;
+}
+
+.createUser form {
+  background-color: #edc49ed8 ;
+  padding: 3%;
+  border-radius: 10px;
+  height:60%;
+  width:50%;
+  text-align: center;
+}
+
+.createUser form div button {
+  border:0;
+  background-color: rgba(20, 19, 19, 0.89);
+  color:white;
+  border-radius: 10px;
+  padding: 10px;
+  margin:10px;
+  font-size: medium;
+  font-family: 'Patua One', cursive;
+}
+.mat-radio-button ~ .mat-radio-button {
+  margin: 0 26px 0;
+}
+
+.messageError{
+  color:red;
+  font-size: 17px;
+  border-radius:5px;
+  width:fit-content;
+}
+
+::ng-deep .mat-form-field {
+  font-family: 'Patua One', cursive !important;
+  width:100% !important;
+}
+
+@media (min-width: 768px) and (max-width: 1900px)and (orientation: landscape) {
+  .createUser form {
+    border-radius: 10px;
+    height:70%;
+    width:30%;
+  }
+}

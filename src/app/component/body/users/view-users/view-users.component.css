@@ -1,0 +1,22 @@
+.viewUsercontainer{
+height: 100%;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.viewUsercontainer table {
+  width: 90%;
+  font-family: 'Patua One', cursive;
+  background-color:white ;
+  border-radius: 20px;
+  text-align: center !important;
+}
+
+::ng-deep .mat-header-cell {
+  color:black !important;
+  background-color:#e0be9dbb ;
+  text-align: center !important;
+  font-size: larger;
+}
+

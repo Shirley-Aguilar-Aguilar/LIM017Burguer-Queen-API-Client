@@ -1,0 +1,47 @@
+
+.loginContainer {
+  background: url(../../../assets/fondo2.jpg) no-repeat center center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Patua One', cursive;
+}
+.logoBurguer img {width:20%;}
+.fullWidth { width: 100%;}
+
+.formContainer form{
+  background-color:#edc49ebb ;
+  border-radius: 20px;
+  font-family: 'Patua One', cursive;
+  padding:5%;
+  margin:0 10%;
+}
+
+.btn {
+  border:0;
+  background-color: rgba(20, 19, 19, 0.89);
+  color:white;
+  border-radius: 10px;
+  padding: 10px;
+  margin:10px;
+  font-size: medium;
+  font-family: 'Patua One', cursive;
+}
+
+.messageError{
+  color:red;
+  font-size: 17px;
+  border-radius:5px;
+  width:fit-content;
+}
+
+::ng-deep .mat-form-field {
+  font-family: 'Patua One', cursive !important;
+  width:100% !important;
+}
+
+@media (min-width: 768px) and (max-width: 1900px)and (orientation: landscape) {
+  .logoBurguer img {
+    width:8%;
+  }
+}
