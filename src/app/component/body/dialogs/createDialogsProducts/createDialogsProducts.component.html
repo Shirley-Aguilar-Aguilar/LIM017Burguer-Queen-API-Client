@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Crear productos</h2>
+<div mat-dialog-content>
+
+  <mat-form-field  appearance="outline">
+    <mat-label> Name</mat-label>
+    <input  matInput  name="name" />
+  </mat-form-field>
+
+  <mat-form-field  appearance="outline">
+    <mat-label>Price</mat-label>
+    <input  matInput  name="price" />
+  </mat-form-field>
+
+
+  <mat-label class="file-name">Image</mat-label>
+    <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+    <input hidden (change)="uploadImage($event)" accept="image/*;capture=camera"
+    #fileInput type="file">
+   <!--  <span class="file-name">{{selectedFile?.name}}</span> -->
+
+<!--   <mat-form-field  appearance="outline">
+    <mat-label>Image</mat-label>
+    <input matInput type="file" (change)="uploadImage($event)" >
+  </mat-form-field> -->
+
+  <mat-form-field  appearance="outline">
+    <mat-label>Type</mat-label>
+    <input  matInput  name="typeProduct" />
+  </mat-form-field>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]="true"  >Crear</button>
+  <button mat-raised-button mat-dialog-close>Cancelar</button>
+</div >
+
+
