@@ -1,1 +1,20 @@
-<p>view-products works!</p>
+<div class="containerViewProducts">
+  <div class="btnCreateProducts">
+    <h4 (click)="openDialogCreate()"><mat-icon>add_box</mat-icon>Agregar producto</h4>
+  </div>
+  <div class="containerProducts">
+    <div class="containerOnlyProduct"  *ngFor="let products of listProducts">
+      <div class="containerIcons">
+        <mat-icon (click)="openDialogUpdate()">edit</mat-icon>
+        <mat-icon (click)="openDialog(products.id)">delete</mat-icon>
+      </div>
+
+      <h3>{{products.name}}</h3>
+      <img  class="imgResponsive" src="{{products.image}}">
+      <p>S/{{products.price}}</p>
+      <h4>{{products.type}}</h4>
+
+    </div>
+  </div>
+
+
