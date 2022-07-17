@@ -16,6 +16,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RestService } from './services/rest.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceOutputService } from './services/service-output.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage())
   ],
-  providers: [RestService],
+  providers: [RestService, ServiceOutputService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

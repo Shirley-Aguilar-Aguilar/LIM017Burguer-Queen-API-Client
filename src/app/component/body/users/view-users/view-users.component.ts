@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from 'src/app/services/rest.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogCorrect, DialogData, DialogIncorrect, DialogUpdateWorker } from '../../dialogs/dialogsTs/dialogs.component';
+import { DialogCorrect, DialogData, DialogIncorrect } from '../../dialogs/dialogsTs/dialogs.component';
+import { DialogUpdateWorker } from '../../dialogs/updateDialogsWorker/dialogUpdateWorker.component';
 
 
 @Component({
@@ -24,9 +25,10 @@ export class ViewUsersComponent implements OnInit {
   ngOnInit(): void {
     this.getWorkers();
   }
+
   public getWorkers() {
     this.RestService.get('users')
-    .subscribe((response) =>  this.dataSource = response)
+    .subscribe((response) =>  this.dataSource = response);
   }
 
   // conexión con clases para mostrar dialogos
@@ -55,27 +57,10 @@ export class ViewUsersComponent implements OnInit {
 
   openDialogUpdate(element:any): void {
     const dialogRef = this.dialog.open(DialogUpdateWorker , {
-      data: {email : element.email, password : element.password, admin : element.admin, userRol : element.userrol.id,}
-    }
-
-      );
-    dialogRef.afterClosed().subscribe(result => {
-      //if(result){this.deleteWorker(id);}
+      data: {id:element.id, email : element.email, password : element.password, admin : element.admin, userRol : element.userrol.id,}
     });
+    dialogRef.afterClosed().subscribe(result => {});
   }
-  // actualizando usuario
-  public updateUser(element:any){
-    console.log(element.id);
-    console.log(element);
-   }
-   public updateWorker(id: number, data:any){
-     this.RestService.put('users', data,id)
-     .subscribe({
-       next: data => {this.openDialogCorrect();},
-       error: error => {this.openDialogIncorrect();}
-     })
-   }
-
 
 }
 

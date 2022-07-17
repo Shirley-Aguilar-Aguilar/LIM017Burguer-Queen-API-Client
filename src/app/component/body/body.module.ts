@@ -3,7 +3,9 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatDialogModule } from "@angular/material/dialog";
 import { AngularMaterialModule } from "src/app/angular-material/angular-material.module";
 import { BodyRoutingModule } from "./body-routing.module";
-import { DialogCorrect, DialogData, DialogIncorrect, DialogUpdateWorker } from "./dialogs/dialogsTs/dialogs.component";
+import { createDialogsProducts } from "./dialogs/createDialogsProducts/createDialogsProducts.component";
+import { DialogCorrect, DialogData, DialogIncorrect } from "./dialogs/dialogsTs/dialogs.component";
+import { DialogUpdateWorker } from "./dialogs/updateDialogsWorker/dialogUpdateWorker.component";
 import { CreateOrdersComponent } from "./orders/create-orders/create-orders.component";
 import { OrdersPendingComponent } from "./orders/view-orders/orders-pending/orders-pending.component";
 import { OrdersStatusComponent } from "./orders/view-orders/orders-status/orders-status.component";
@@ -23,6 +25,7 @@ import { ViewUsersComponent } from "./users/view-users/view-users.component";
     DialogIncorrect,
     DialogCorrect,
     DialogUpdateWorker,
+    createDialogsProducts
   ],
   imports: [
    BodyRoutingModule,
