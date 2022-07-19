@@ -1,38 +1,58 @@
 <h2 mat-dialog-title>Crear productos</h2>
 <div mat-dialog-content>
+  <form
+  [formGroup]="formCreateProduct" novalidate >
+    <mat-form-field  appearance="outline">
+      <mat-label> Nombre</mat-label>
+      <input formControlName="name" matInput   name="name"  />
+    </mat-form-field>
 
-  <mat-form-field  appearance="outline">
-    <mat-label> Name</mat-label>
-    <input  matInput  name="name" />
-  </mat-form-field>
+    <!--validación del nombre-->
+    <div *ngIf="nameField!.errors && nameField!.touched ">
+      <p *ngIf="nameField!.hasError('required')" class="messageError" >El campo es requerido</p>
+    </div>
 
-  <mat-form-field  appearance="outline">
-    <mat-label>Price</mat-label>
-    <input  matInput  name="price" />
-  </mat-form-field>
+    <mat-form-field  appearance="outline">
+      <mat-label>Precio</mat-label>
+      <input formControlName="price" matInput type="number" name="price" />
+    </mat-form-field>
 
+    <!--validación del precio-->
+    <div *ngIf="priceField!.errors && priceField!.touched ">
+      <p *ngIf="priceField!.hasError('required')" class="messageError" >El campo es requerido</p>
+    </div>
 
-  <mat-label class="file-name">Image</mat-label>
-    <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
-    <input hidden (change)="uploadImage($event)" accept="image/*;capture=camera"
-    #fileInput type="file">
-   <!--  <span class="file-name">{{selectedFile?.name}}</span> -->
+    <p>Escoja una imagen o agregue una url</p>
 
-<!--   <mat-form-field  appearance="outline">
-    <mat-label>Image</mat-label>
-    <input matInput type="file" (change)="uploadImage($event)" >
-  </mat-form-field> -->
+    <button type="button" mat-raised-button  class="btnImage" (click)="fileInput.click()">Escoge una imagen</button>
+    <input hidden (change)="uploadImage($event)"
+    #fileInput type="file" >
 
-  <mat-form-field  appearance="outline">
-    <mat-label>Type</mat-label>
-    <input  matInput  name="typeProduct" />
-  </mat-form-field>
+    <mat-form-field  appearance="outline">
+      <mat-label>Url</mat-label>
+      <input formControlName="image" matInput  name="image"  value={{url}}/>
+    </mat-form-field>
+
+    <!--validación de la url-->
+    <div *ngIf="imageField!.touched">
+      <p *ngIf="this.formCreateProduct.value.image === ('')" class="messageError" >El campo es requerido</p>
+    </div>
+
+    <mat-form-field  appearance="outline">
+      <mat-label>Type</mat-label>
+      <input formControlName="type" matInput  name="type"  />
+    </mat-form-field>
+    <!--validación de la url-->
+    <div *ngIf="typeField!.errors && typeField!.touched ">
+      <p *ngIf="typeField!.hasError('required')" class="messageError" >El campo es requerido con DESAYUNO, ALMUERZO, CENA</p>
+    </div>
+  </form>
 
 </div>
 
 <div mat-dialog-actions>
-  <button mat-raised-button [mat-dialog-close]="true"  >Crear</button>
-  <button mat-raised-button mat-dialog-close>Cancelar</button>
+  <button mat-raised-button type="button" (click)="save()">Crear</button>
+  <button mat-raised-button  type="button" mat-dialog-close>Cancelar</button>
 </div >
 
 
