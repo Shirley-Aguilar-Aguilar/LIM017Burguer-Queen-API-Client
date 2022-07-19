@@ -1,10 +1,15 @@
+import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormGroup, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatDialogModule } from "@angular/material/dialog";
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AngularMaterialModule } from "src/app/angular-material/angular-material.module";
 import { BodyRoutingModule } from "./body-routing.module";
 import { createDialogsProducts } from "./dialogs/createDialogsProducts/createDialogsProducts.component";
 import { DialogCorrect, DialogData, DialogIncorrect } from "./dialogs/dialogsTs/dialogs.component";
+import { updateDialogsProducts } from "./dialogs/updateDialogsProducts/updateDialogsProducts.component";
 import { DialogUpdateWorker } from "./dialogs/updateDialogsWorker/dialogUpdateWorker.component";
 import { CreateOrdersComponent } from "./orders/create-orders/create-orders.component";
 import { OrdersPendingComponent } from "./orders/view-orders/orders-pending/orders-pending.component";
@@ -25,14 +30,17 @@ import { ViewUsersComponent } from "./users/view-users/view-users.component";
     DialogIncorrect,
     DialogCorrect,
     DialogUpdateWorker,
-    createDialogsProducts
+    createDialogsProducts,
+    updateDialogsProducts
   ],
   imports: [
    BodyRoutingModule,
-   FormsModule,
    ReactiveFormsModule,
    AngularMaterialModule,
-   MatDialogModule
+   MatDialogModule,
+   FlexLayoutModule,
+   FormsModule,
+
   ]
 })
 export class BodyModule { }
