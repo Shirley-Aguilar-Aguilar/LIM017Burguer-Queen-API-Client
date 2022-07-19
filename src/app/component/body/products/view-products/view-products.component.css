@@ -6,6 +6,7 @@
    align-items: center;
   flex-direction: column;
 }
+
 .btnCreateProducts{
 background-color: white ;
 padding: 5px;
@@ -22,6 +23,12 @@ border-radius: 10px;
   grid-template-columns: repeat(2, 45%);
   gap:5%;
   justify-content: center;
+  width: 100%;
+  overflow:hidden;
+  height: max-content;
+}
+.containerProducts::-webkit-scrollbar{
+  display: none;
 }
 .containerIcons{
   width: 100%;
@@ -43,12 +50,16 @@ border-radius: 10px;
 @media (min-width:600px){
   .containerProducts{
     grid-template-columns: repeat(3, 26%);
-    width: 100%;
   }
+
 }
 
 @media (min-width: 768px) and (max-width: 1500px)and (orientation: landscape) {
-  .containerProducts{grid-template-columns: repeat(3, 22%);}
+  .containerProducts{
+    grid-template-columns: repeat(3, 22%);
+    height: 100%;
+  }
+
 }
 
 @media (min-width:1500px){
@@ -56,4 +67,5 @@ border-radius: 10px;
     grid-template-columns: repeat(4, 20%);
     width: 100%;
   }
+
 }

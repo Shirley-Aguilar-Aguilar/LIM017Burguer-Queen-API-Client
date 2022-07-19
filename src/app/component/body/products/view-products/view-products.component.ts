@@ -5,6 +5,7 @@ import { RestService } from 'src/app/services/rest.service';
 import { ServiceOutputService } from 'src/app/services/service-output.service';
 import { createDialogsProducts } from '../../dialogs/createDialogsProducts/createDialogsProducts.component';
 import { DialogCorrect, DialogData, DialogIncorrect } from '../../dialogs/dialogsTs/dialogs.component';
+import { updateDialogsProducts } from '../../dialogs/updateDialogsProducts/updateDialogsProducts.component';
 
 @Component({
   selector: 'app-view-products',
@@ -55,8 +56,9 @@ export class ViewProductsComponent implements OnInit {
   });
 }
 
-  openDialogUpdate(): void {
-    const dialogRef = this.dialog.open(createDialogsProducts , {
+  openDialogUpdate(product:any): void {
+    const dialogRef = this.dialog.open(updateDialogsProducts , {
+      data: {id:product.id, name:product.name, price : product.price, image : product.image, type : product.type,}
     });
   dialogRef.afterClosed().subscribe(result => {
   });
@@ -67,6 +69,7 @@ export class ViewProductsComponent implements OnInit {
   openDialog(id:number): void {
     const dialogRef = this.dialog.open(DialogData , {});
     dialogRef.afterClosed().subscribe(result => {
+      console.log(result)
       if(result){this.deleteProduct(id);}
     });
   }

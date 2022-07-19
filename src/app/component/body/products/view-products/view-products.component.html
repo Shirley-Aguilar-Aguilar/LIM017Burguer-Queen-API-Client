@@ -5,7 +5,7 @@
   <div class="containerProducts">
     <div class="containerOnlyProduct"  *ngFor="let products of listProducts">
       <div class="containerIcons">
-        <mat-icon (click)="openDialogUpdate()">edit</mat-icon>
+        <mat-icon (click)="openDialogUpdate(products)">edit</mat-icon>
         <mat-icon (click)="openDialog(products.id)">delete</mat-icon>
       </div>
 
