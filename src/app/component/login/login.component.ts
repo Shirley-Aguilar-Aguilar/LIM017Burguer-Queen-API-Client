@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
       next: data => {
         sessionStorage.setItem('token',  JSON.stringify(data.accessToken).replace(/['"]+/g, ''));
         sessionStorage.setItem('name',  JSON.stringify(data.name).replace(/['"]+/g, ''));
-        sessionStorage.setItem('userId', JSON.stringify(data.id));
+        sessionStorage.setItem('userId', JSON.stringify(data.id).replace(/['"]+/g, ''));
 
         this.router.navigate(['/body']);
       },
