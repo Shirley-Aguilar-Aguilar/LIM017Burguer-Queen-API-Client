@@ -16,11 +16,6 @@
        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
      </ng-container>
 
-    <ng-container matColumnDef="password">
-      <th mat-header-cell *matHeaderCellDef>Contraseña</th>
-      <td mat-cell *matCellDef="let element" type="password">Private</td>
-    </ng-container>
-
     <ng-container matColumnDef="rol">
       <th mat-header-cell *matHeaderCellDef>Rol</th>
       <td mat-cell *matCellDef="let element"> {{element.userrol.name}} </td>

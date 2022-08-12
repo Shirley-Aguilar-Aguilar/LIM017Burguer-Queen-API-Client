@@ -13,7 +13,7 @@ import { DialogUpdateWorker } from '../../dialogs/updateDialogsWorker/dialogUpda
 export class ViewUsersComponent implements OnInit {
   public listWorkers:any = [];
   dataSource = this.listWorkers;
-  displayedColumns: string[] = ['id', 'name','email', 'password', 'rol','update', 'delete'];
+  displayedColumns: string[] = ['id', 'name','email', 'rol','update', 'delete'];
   error: boolean = false;
 
   constructor(
