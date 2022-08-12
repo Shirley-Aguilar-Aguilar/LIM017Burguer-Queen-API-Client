@@ -1,1 +1,48 @@
-<p>create-orders works!</p>
+<mat-drawer-container class="create-container" autosize>
+
+  <div class="create-sidenav-content" fxLayoutAlign="center center" fxLayout="column wrap">
+
+    <div class = "listTypeProducts" >
+
+        <button class = "listCarOrder" type="button" mat-button-raised (click)="drawer.toggle()">
+          Ordenar <mat-icon>shopping_cart</mat-icon>
+        </button>
+      <br>
+      <ul class="typeProducts" fxLayout="row" fxLayoutAlign="center center">
+        <li *ngFor="let data of navData">
+            <a (click)="filterProducts(data.Type)">
+                <span>{{data.label}}</span>
+            </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="list-products">
+      <app-products [product]="products" *ngFor="let products of listProducts"></app-products>
+    </div>
+  </div>
+
+
+
+  <mat-drawer #drawer class="create-sidenav" mode="side"  opened="true" position="end">
+    <div class = "createOrder">
+      <form [formGroup]="formCreateOrder" novalidate   (ngSubmit)="save($event)">
+        <h2>Crear Orden</h2>
+        <mat-form-field>
+          <mat-label>Nombre del cliente</mat-label>
+          <input matInput formControlName="client"/>
+        </mat-form-field>
+             <!--validación del nombre-->
+             <div *ngIf="clientField!.errors && clientField!.touched ">
+              <p *ngIf="clientField!.hasError('required')" class="messageError" >El campo es requerido</p>
+            </div>
+        <app-product-order [product]="products" *ngFor="let products of formCreateOrder.value.products"></app-product-order>
+        <br>
+        <button type="button" >Total a pagar = {{count}}</button>
+        <button type="submit">Crear Orden</button>
+      </form>
+    </div>
+
+  </mat-drawer>
+
+</mat-drawer-container>

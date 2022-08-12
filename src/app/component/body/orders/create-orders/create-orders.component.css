@@ -1,0 +1,97 @@
+.create-container {
+  width: 100%;
+  height: 100%;
+}
+
+.create-sidenav {
+  background: url(../../../../../assets/fondo-brown.png) no-repeat center center!important;
+  background-size: cover;
+  padding: 20px;
+}
+
+.list-products {
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+  width: 90%;
+}
+
+.listTypeProducts{
+  display:flex;
+  padding:20px;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.createOrder{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0%;
+}
+.createOrder form{
+  background-color:white ;
+  padding:20px;
+  border-radius: 10px;
+  margin:0px auto 10px auto;
+  font-family: 'Amaranth', sans-serif;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.createOrder form input,
+.createOrder form select {
+  border-radius: 5px;
+  border:0;
+}
+.createOrder form h2 {
+  font-family: 'Patua One', cursive;
+  text-align: center;
+}
+.createOrder form button {
+  margin: 5px auto;
+  border:0;
+  background-color: #422623;
+  padding:8px 12px;
+  border-radius: 5px;
+  color:#edc49e;
+}
+
+.listCarOrder {
+  background-color: #422623;
+  color:#edc49e;
+  width: 25%;
+  border-radius: 10px;
+  padding: 8px 15px;
+  text-align: center;
+  font-family: 'Patua One', cursive;
+  font-size: larger;
+}
+.typeProducts{
+  font-family: 'Patua One', cursive;
+  font-size: larger;
+  width:100%;
+}
+.typeProducts li{
+  width:20%;
+  color:#422623;
+  list-style:none;
+  background-color: aliceblue;
+  margin:0 5px;
+  text-align: center;
+  padding:10px;
+  border-radius: 10px;
+  background-color: #edc49e;
+}
+
+.typeProducts li:hover{
+  color:#edc49e;
+  list-style:none;
+  background-color: #422623;
+}
+
+::ng-deep .mat-drawer-content {
+  background: url(../../../../../assets/fondo-brown.png) no-repeat center center!important;
+  background-size: cover;
+}
