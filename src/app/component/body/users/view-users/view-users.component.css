@@ -4,19 +4,35 @@ width: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
+flex-direction: column;
 }
-.viewUsercontainer table {
+table.mat-table{
   width: 90%;
   font-family: 'Patua One', cursive;
   background-color:white ;
   border-radius: 20px;
   text-align: center !important;
 }
-
+::ng-deep .mat-paginator{
+  width:90%;
+  text-align: center !important;
+}
 ::ng-deep .mat-header-cell {
   color:black !important;
   background-color:#e0be9dbb ;
   text-align: center !important;
   font-size: larger;
+}
+::ng-deep .viewUsercontainer  .mat-form-field {
+  width:90% !important;
+}
+::ng-deep .viewUsercontainer .mat-form-field-infix {
+  background-color: white;
+  width:100% !important;
+  font-family: 'Patua One', cursive;
+  color: black;
+}
+::ng-deep .mat-paginator-page-size-label{
+  width: 200px;
 }
 
