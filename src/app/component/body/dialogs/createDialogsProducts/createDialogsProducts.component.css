@@ -29,7 +29,6 @@
   width: 100%;
 
 }
-
 .mat-dialog-actions button{
   background-color:rgb(71, 66, 66);
   color:white;
@@ -49,7 +48,6 @@ button:hover{background-color:aliceblue;}
   font-family: 'Patua One', cursive;
 
 }
-
 .messageError{
   color:red;
   font-size: 17px;

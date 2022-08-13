@@ -1,17 +1,10 @@
-import { Component, Inject, OnInit } from "@angular/core";
+import { Component, Inject, OnInit } from '@angular/core';
 import { ref, Storage, uploadBytes, getDownloadURL } from '@angular/fire/storage';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { RestService } from "src/app/services/rest.service";
-import { DialogCorrect, DialogIncorrect } from "../dialogsTs/dialogs.component";
-
-export interface DataProduct {
-  id: string;
-  name: string;
-  price: number;
-  image:string;
-  type:string;
-}
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { RestService } from 'src/app/services/rest.service';
+import { DialogCorrect, DialogIncorrect } from '../dialogsTs/dialogs.component';
+import { DataProduct } from '../../../../shared/interfaces/dataProduct'
 
 @Component({
   selector: 'app-view-users',
@@ -24,7 +17,6 @@ export class createDialogsProducts implements OnInit {
   formCreateProduct!: FormGroup;
   error!:string;
 
-
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DataProduct,
     private storage: Storage,
@@ -33,7 +25,6 @@ export class createDialogsProducts implements OnInit {
     public dialog: MatDialog,
     private formBuilder: FormBuilder,){}
 
-    // onNoClick(): void {this.dialogRef.close();}
 
   ngOnInit(): void {
     this.formCreateProduct = this.formBuilder.group({
@@ -83,21 +74,19 @@ export class createDialogsProducts implements OnInit {
     console.log(this.formCreateProduct.value.image)
     if(this.formCreateProduct.valid && this.formCreateProduct.value.image!==(null||undefined) ){
      // this.formCreateProduct.value.image= this.url;
-     console.log(this.formCreateProduct.value)
-     this.createProduct(this.formCreateProduct.value)
+      console.log(this.formCreateProduct.value)
+      this.createProduct(this.formCreateProduct.value)
     }else{
       this.openDialogIncorrect;
     }
   }
 
   public createProduct(data:any){
-     this.RestService.post('products', data)
-     .subscribe({
+    this.RestService.post('products', data)
+    .subscribe({
       next: data => {
-        console.log("datapostproduct");
-         console.log(data);
-         this.openDialogCorrect();
-         this.formCreateProduct.reset();
+        this.openDialogCorrect();
+        this.formCreateProduct.reset();
       },
       error: error => {
         console.log(JSON.stringify(error.error));
@@ -109,18 +98,14 @@ export class createDialogsProducts implements OnInit {
   public update(data:any){
     this.RestService.post('products', data)
     .subscribe({
-     next: data => {
-       console.log("datapostproduct");
-        console.log(data);
+    next: data => {
         this.openDialogCorrect();
         this.formCreateProduct.reset();
-     },
-     error: error => {
-       console.log(JSON.stringify(error.error));
-       this.openDialogIncorrect()
-     }
-   })
- }
-
-
+    },
+    error: error => {
+      console.log(JSON.stringify(error.error));
+      this.openDialogIncorrect()
+    }
+    })
+  }
 }
