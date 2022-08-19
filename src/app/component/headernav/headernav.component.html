@@ -29,16 +29,13 @@
             <a mat-list-item routerLink="create-orders">
               <mat-icon>content_paste</mat-icon> Crear ordenes
             </a>
-            <a mat-list-item routerLink="orders-pending">
-              <mat-icon>soup_kitchen</mat-icon> Ordenes pendientes
-            </a>
             <a mat-list-item routerLink="orders-status">
               <mat-icon>pending_actions</mat-icon>Estados de las ordenes
             </a>
 
-            <a mat-list-item [routerLink]="['/auth/login']">
+            <a mat-list-item [routerLink]="['/login']">
                 <mat-icon>exit_to_app</mat-icon>
-                Log out
+                Cerrar sesión
             </a>
         </mat-nav-list>
     </mat-sidenav>

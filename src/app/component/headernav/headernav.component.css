@@ -16,7 +16,12 @@ header .mat-toolbar{
 }
 .mat-sidenav-container{
   height: 85vh;
+  overflow: scroll;
 }
+.mat-sidenav-container::-webkit-scrollbar{
+  display: none;
+}
+
 
 .sidenavContainer{
   background: url(../../../assets/fondo-madera.jpg) no-repeat center center;

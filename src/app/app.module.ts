@@ -13,9 +13,10 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RestService } from './services/rest.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceOutputService } from './services/service-output.service';
 
 @NgModule({
   declarations: [
@@ -33,11 +34,13 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
+
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage())
   ],
-  providers: [RestService],
+  providers: [RestService, ServiceOutputService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,7 +8,7 @@
 }
 
 .createUser form {
-  background-color: #edc49ed8 ;
+  background-color: white ;
   padding: 3%;
   border-radius: 10px;
   height:60%;
@@ -45,7 +45,7 @@
 @media (min-width: 768px) and (max-width: 1900px)and (orientation: landscape) {
   .createUser form {
     border-radius: 10px;
-    height:70%;
+    height:65%;
     width:30%;
   }
 }
