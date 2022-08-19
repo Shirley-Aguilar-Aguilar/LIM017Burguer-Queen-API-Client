@@ -15,7 +15,6 @@ export interface DataWorker {
   userRol:number;
 }
 
-
 // dialogo para actualizar ususario
 @Component({
   templateUrl: './dialogUpdateWorker.component.html',
@@ -59,15 +58,13 @@ export class DialogUpdateWorker implements OnInit {
   openDialogIncorrect(): void {const dialogRef = this.dialog.open(DialogIncorrect, {});}
 
   // actualizando usuario
-    public updateUser(element:any){
-      console.log(element);
+    public saveNewDataUser(element:any){
+      console.log(element, "----------------");
       if(element.userRol===1){
         this.formWorkerUpdate.value.admin=true;
       }else{ this.formWorkerUpdate.value.admin=false; }
       console.log(element)
-     //  this.updateWorker(element.id, this.formWorkerUpdate.value)
-     console.log("this.formWorkerUpdate")
-     console.log(this.formWorkerUpdate.value)
+     this.updateWorker(element.id, this.formWorkerUpdate.value)
      }
     public updateWorker(id: number, data:any){
        this.RestService .put('users', data,id)

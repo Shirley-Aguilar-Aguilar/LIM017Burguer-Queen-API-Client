@@ -49,5 +49,8 @@ export class OrdersStatusComponent implements OnInit {
   addPrice(){
     console.log("this.", this.totalPrice)
   }
+  openOptions(){
+    console.log("abrir opciones")
+  }
 
 }

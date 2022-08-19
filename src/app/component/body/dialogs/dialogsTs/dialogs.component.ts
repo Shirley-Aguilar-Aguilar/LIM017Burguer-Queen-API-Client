@@ -1,8 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 
-// creación de templates de dialogos
+// creación de templates de dialogos de avisos generales
 @Component({
   templateUrl: '../dialog.component.html',
   styleUrls: ['../dialog.component.css']

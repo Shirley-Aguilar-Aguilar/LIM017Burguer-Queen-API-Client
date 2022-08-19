@@ -4,14 +4,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { RestService } from "src/app/services/rest.service";
 import { DialogCorrect, DialogIncorrect } from "../dialogsTs/dialogs.component";
-
-export interface DataProduct {
-  id: string;
-  name: string;
-  price: number;
-  image:string;
-  type:string;
-}
+import { DataProduct } from "src/app/shared/interfaces/dataProduct";
 
 @Component({
   templateUrl: './updateDialogsProducts.component.html',
@@ -23,7 +16,6 @@ export class updateDialogsProducts implements OnInit {
   formCreateProduct!: FormGroup;
   error!:string;
 
-
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DataProduct,
     private storage: Storage,
@@ -31,8 +23,6 @@ export class updateDialogsProducts implements OnInit {
     public dialogRef : MatDialogRef<updateDialogsProducts>,
     public dialog: MatDialog,
     private formBuilder: FormBuilder,){}
-
-    // onNoClick(): void {this.dialogRef.close();}
 
   ngOnInit(): void {
     this.formCreateProduct = this.formBuilder.group({
@@ -75,8 +65,8 @@ export class updateDialogsProducts implements OnInit {
   openDialogCorrect(): void {const dialogRef = this.dialog.open(DialogCorrect , {});}
   openDialogIncorrect(): void {const dialogRef = this.dialog.open(DialogIncorrect , {});}
 
-  public update(dataValue:any){
-    console.log(dataValue)
+  public saveDataProduct(dataValue:any){
+    console.log(dataValue, "---------------")
    this.RestService.put('products', dataValue, dataValue.id)
     .subscribe({
      next: data => {

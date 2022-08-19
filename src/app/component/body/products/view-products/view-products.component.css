@@ -5,6 +5,7 @@
    justify-content: center;
    align-items: center;
   flex-direction: column;
+
 }
 
 .btnCreateProducts{
@@ -24,7 +25,6 @@ border-radius: 10px;
   gap:5%;
   justify-content: center;
   width: 100%;
-  overflow:hidden;
   height: max-content;
 }
 .containerProducts::-webkit-scrollbar{
@@ -46,6 +46,7 @@ border-radius: 10px;
   width:100%;
   padding:3%;
 }
+
 
 @media (min-width:600px){
   .containerProducts{

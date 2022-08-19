@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { RestService } from 'src/app/services/rest.service';
-import { ServiceOutputService } from 'src/app/services/service-output.service';
 import { createDialogsProducts } from '../../dialogs/createDialogsProducts/createDialogsProducts.component';
 import { DialogCorrect, DialogData, DialogIncorrect } from '../../dialogs/dialogsTs/dialogs.component';
 import { updateDialogsProducts } from '../../dialogs/updateDialogsProducts/updateDialogsProducts.component';
@@ -17,17 +16,11 @@ export class ViewProductsComponent implements OnInit {
   public listProducts:any = [];
 
   constructor(
-    private formBuilder: FormBuilder,
     public RestService:RestService,
-    private serviceOutput: ServiceOutputService,
     public dialog: MatDialog,
     ) { }
 
-  ngOnInit(): void {
-
-    this.getProducts();
-
-  }
+  ngOnInit(): void { this.getProducts();}
 
     // conexión con clases para mostrar dialogos
     openDialogCorrect(): void {const dialogRef = this.dialog.open(DialogCorrect , {});}
@@ -40,7 +33,6 @@ export class ViewProductsComponent implements OnInit {
         console.log("products");
          console.log(data);
          this.listProducts=data;
-         // this.openDialogCorrect();
       },
       error: error => {
         this.openDialogIncorrect()
@@ -48,40 +40,35 @@ export class ViewProductsComponent implements OnInit {
     })
   }
 
-
   openDialogCreate(): void {
     const dialogRef = this.dialog.open(createDialogsProducts , {
     });
   dialogRef.afterClosed().subscribe(result => {
-  });
-}
+    });
+  }
 
   openDialogUpdate(product:any): void {
     const dialogRef = this.dialog.open(updateDialogsProducts , {
       data: {id:product.id, name:product.name, price : product.price, image : product.image, type : product.type,}
     });
-  dialogRef.afterClosed().subscribe(result => {
-  });
-}
-
-
-    // dialogo previo antes de eliminar
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+  // dialogo previo antes de eliminar
   openDialog(id:number): void {
     const dialogRef = this.dialog.open(DialogData , {});
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
       if(result){this.deleteProduct(id);}
     });
   }
 
-    // eliminando producto
-    public deleteProduct(id: number){
-      this.RestService.delete('users', id)
-      .subscribe({
-        next: data => {this.openDialogCorrect()},
-        error: error => {this.openDialogIncorrect();}
-      })
-    }
-
+  // eliminando producto
+  public deleteProduct(id: number){
+    this.RestService.delete('products', id)
+    .subscribe({
+      next: data => {this.openDialogCorrect()},
+      error: error => {this.openDialogIncorrect();}
+    })
+  }
 
 }

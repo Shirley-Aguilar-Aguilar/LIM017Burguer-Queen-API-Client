@@ -32,7 +32,12 @@
   height:40px;
   border-radius: 20px;
 }
-
+.statusContainer {
+  display:flex;
+  align-items: center;
+  justify-content:space-between;
+  width:100%;
+}
 .statusContainer p{
   padding:6px 9px;
   margin: 10px auto 0;

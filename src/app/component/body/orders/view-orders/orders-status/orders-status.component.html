@@ -1,5 +1,13 @@
 <div  class="containerOrders" >
   <section *ngFor="let order of orders" class="cardOrder">
+    <div class="statusContainer">
+      <p class="pending" *ngIf="order.orderstatusId===1">Pendiente</p>
+      <p class="delivering" *ngIf="order.orderstatusId===3">Lista para entrega</p>
+      <p class="delivered" *ngIf="order.orderstatusId===4">Entregada</p>
+      <p class="cancel" *ngIf="order.orderstatusId===2">Cancelada</p>
+      <mat-icon (click)="openOptions()">edit</mat-icon>
+    </div>
+    <br>
     <h3>Cliente: {{order.client}}</h3>
     <div class="cardProduct">
       <div *ngFor="let product of order.ordersproducts" >
@@ -11,13 +19,6 @@
     </div>
     <div>
       <h4>Total a pagar: S/{{order.newTotal}}</h4>
-    </div>
-
-    <div class="statusContainer">
-      <p class="pending" *ngIf="order.orderstatusId===1">Pendiente</p>
-      <p class="delivering" *ngIf="order.orderstatusId===3">Lista para entrega</p>
-      <p class="delivered" *ngIf="order.orderstatusId===4">Entregada</p>
-      <p class="cancel" *ngIf="order.orderstatusId===2">Cancelada</p>
     </div>
   </section>
 </div>
